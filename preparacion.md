@@ -114,3 +114,126 @@ y_n2 = Y(:, n2); % Valores en el instante n2
 % Calcular la autocorrelación entre y_n1 y y_n2
 Ryy = sum(y_n1 .* y_n2) / length(y_n1);
 ```
+
+## Práctica 2: PROCESOS ESTOCASTICOS Y SISTEMAS LINEALES MODULACIONES ANALOGICAS
+
+* Autocorrelación de un proceso
+```Matlab
+% Nr = numero realizacion
+% Nt = numero instante tiempo
+
+rxx = xcorr(X(Nr, Nt));
+```
+
+* EXAMEN: Imágenes correlacion
+
+-> Correlación proceso estocástico original:
+
+![Corr_original](https://github.com/aperona2018/TC_Practicas/blob/main/corr_pe_original.png)
+
+-> Correlación filtro:
+
+![Corr_filtro](https://github.com/aperona2018/TC_Practicas/blob/main/corr_filtro.png)
+
+-> Correlación proceso estocástico filtrado:
+
+![Corr_salida](https://github.com/aperona2018/TC_Practicas/blob/main/corr_pe_filtrada.png)
+
+* Para visualizar bien los ejes:
+
+```Matlab
+eje = linspace(-Fs/2, Fs/2, length(H));
+```
+
+* EXAMEN: Sea un proceso estacionario de duración T segundos. Se ha calculado su autocorrelación y almacenado en una variable denominada Rx. Se desea representar dicha autocorrelación usando la expresión plot(tau, Rx).
+Indique la línea de código para generar el vector tau:
+
+```Matlab
+tau=linspace(T, -T, length(Rx));
+```
+
+* DEP de un filtro:
+
+```Matlab
+dep_h = H.^2;
+```
+
+* Modulaciones:
+
+-> Modulación AM:
+
+![Modulación AM](https://github.com/aperona2018/TC_Practicas/blob/main/mod_AM.png)
+
+-> Modulación PM 
+
+- Frecuencia baja
+  
+![PM_Frec_baja](https://github.com/aperona2018/TC_Practicas/blob/main/mod_PM_frec_peque%C3%B1a.png)
+
+- Frecuencia alta
+  
+![PM_Frec_alta](https://github.com/aperona2018/TC_Practicas/blob/main/mod_PM_frec_grande.png)
+
+-> Modulación FM
+
+![Mod_FM](https://github.com/aperona2018/TC_Practicas/blob/main/mod_FM.png)
+
+* EXAMEN MODULACIONES:
+
+-> Señal original:
+
+![](https://github.com/aperona2018/TC_Practicas/blob/main/examen_original.png)
+
+-> Señal modulada AM
+
+![](https://github.com/aperona2018/TC_Practicas/blob/main/examen_AM.png)
+
+-> Señal modulada PM frecuencia baja
+
+![](https://github.com/aperona2018/TC_Practicas/blob/main/examen_PM_frec_baja.png)
+
+-> Señal modulada PM frecuencia alta
+
+![](https://github.com/aperona2018/TC_Practicas/blob/main/examen_PM_frec_alta.png)
+
+-> Señal modulada FM
+
+![](https://github.com/aperona2018/TC_Practicas/blob/main/examen_FM.png)
+
+-> Señal demodulada
+
+![](https://github.com/aperona2018/TC_Practicas/blob/main/examen_Demod.png)
+
+
+* DEP Y FILTROS:
+
+-> Señal original
+
+![](https://github.com/aperona2018/TC_Practicas/blob/main/se%C3%B1al_original.png)
+
+-> DEP Original
+
+![](https://github.com/aperona2018/TC_Practicas/blob/main/dep_original.png)
+
+-> DEP Filtro
+
+![](https://github.com/aperona2018/TC_Practicas/blob/main/dep_filtro.png)
+
+-> DEP Filtrada
+
+![](https://github.com/aperona2018/TC_Practicas/blob/main/dep_filtrada.png)
+
+
+* EXAMEN FILTROS:
+
+-> DEP Original
+
+![](https://github.com/aperona2018/TC_Practicas/blob/main/examen_dep_original.png)
+
+-> DEP Filtro
+
+![](https://github.com/aperona2018/TC_Practicas/blob/main/examen_dep_filtro.png)
+
+-> DEP Filtrada
+
+![](https://github.com/aperona2018/TC_Practicas/blob/main/dep_filtrada.png)
