@@ -237,3 +237,84 @@ dep_h = H.^2;
 -> DEP Filtrada
 
 ![](https://github.com/aperona2018/TC_Practicas/blob/main/dep_filtrada.png)
+
+## Práctica 3: TRANSMISIÓN DIGITAL EN BANDA BASE
+
+* DIAGRAMA DE OJO:
+
+  -> Diagrama con SNR = 5 dB
+
+  ![](https://github.com/aperona2018/TC_Practicas/blob/main/diagOjo1.png)
+
+  -> Diagrama con SNR = 15 dB
+
+  ![](https://github.com/aperona2018/TC_Practicas/blob/main/diagOjo4.png)
+
+  -> Diagrama con SNR = 25 dB
+
+  ![](https://github.com/aperona2018/TC_Practicas/blob/main/diagOjo2.png)
+
+  -> Diagrama con SNR = 35 dB
+
+  ![](https://github.com/aperona2018/TC_Practicas/blob/main/diagOjo3.png)
+
+  -> Diagrama con r = 0
+
+  ![](https://github.com/aperona2018/TC_Practicas/blob/main/diagOjor_0.png)
+
+  -> Diagrama con r = 1
+
+  ![](https://github.com/aperona2018/TC_Practicas/blob/main/diagOjor_1.png)
+
+  **¡A MAYOR R, MENOS LINEAS DISPERSAS!**
+
+* ENERGIA DE SIMBOLO Y DE BIT
+
+-> Energía de simbolo:
+
+```Matlab
+An = [-7, -5, -3, -1, 1, 3, 5, 7];
+
+Es = mean(An.^2);
+```
+
+-> Energía de bit:
+
+```Matlab
+Eb = Es/k
+```
+
+* RUIDO
+
+```Matlab
+ruido=sqrt(No/2)*randn(1,L);
+```
+
+* SIMBOLOS:
+
+```
+simbolos_Tx = pammod(indices_simbolos_Tx, M);
+
+simbolos_Rx = simbolos_Tx + ruido;
+
+simbolos_decision = decisor_8PAM(simbolos_Rx);
+```
+
+* SER EXPERIMENTAL:
+
+```Matlab
+SER_Experimental(count)=sum((simbolos_decision ~= simbolos_Tx))/L
+```
+
+* CURVA
+
+```Matlab
+semilogy(Eb_No_dB,SER_Experimental);
+```
+
+**¡!** Con 10.000 simbolos, la curva de la SER experimental se aproxima más a la curva de la SER teórica
+
+
+## EXTRAS:
+
+* Frecuencia de muestreo: frec_muestreo = 2*frec_portadora
