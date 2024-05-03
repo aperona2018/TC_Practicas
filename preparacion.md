@@ -115,6 +115,12 @@ y_n2 = Y(:, n2); % Valores en el instante n2
 Ryy = sum(y_n1 .* y_n2) / length(y_n1);
 ```
 
+MAS SIMPLE: Así:
+
+```Matlab
+Ryy = mean(Y(:, n1) .* Y(:, n2))
+```
+
 ## Práctica 2: PROCESOS ESTOCASTICOS Y SISTEMAS LINEALES MODULACIONES ANALOGICAS
 
 * Autocorrelación de un proceso
